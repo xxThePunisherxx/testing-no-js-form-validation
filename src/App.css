@@ -1,0 +1,100 @@
+.FormWrapper {
+    display: grid;
+    place-items: center;
+    height: 100dvh;
+    background-color: black;
+}
+
+.FormWrapper h1 {
+    font-size: 3rem;
+    color: wheat;
+}
+
+.TestFomrm {
+    display: grid;
+    margin-top: 5rem;
+    row-gap: .5rem;
+}
+
+.TestFomrm>*+* {
+    margin-top: .5em;
+}
+
+.inputWrapper label {
+    font-size: 2rem;
+    color: white;
+    margin-top: 0.5em;
+}
+
+
+
+.TestFomrm input {
+    font-size: 2rem;
+    padding: .5em .5em;
+    outline: none;
+    width: 100%;
+    margin-top: 0.2em;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.TestFomrm input:focus {
+    border: 5px solid yellow;
+}
+
+.TestFomrm input:user-invalid:required:focus {
+    border: 5px solid red;
+}
+
+.TestFomrm button {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding: .5em;
+}
+
+.TestFomrm input::placeholder {
+    color: rgba(128, 128, 128, 0.408);
+}
+
+.TestFomrm input:user-invalid:required {
+    border: 5px solid red;
+}
+
+.TestFomrm input:user-invalid:required::placeholder {
+    color: red;
+}
+
+.TestFomrm input:user-valid {
+    border: 5px solid green;
+}
+
+.TestFomrm input:optional {
+    border: none;
+}
+
+.inputWrapper :has(~ input:user-invalid) {
+    color: red;
+}
+
+.inputWrapper .ErrorMessage,
+.inputWrapper .ReqMessage {
+    display: none;
+    color: red;
+    font-size: 1.5rem;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
+.inputWrapper :is(input:placeholder-shown:user-invalid)~.ReqMessage {
+    display: block;
+}
+
+.inputWrapper :is(input:user-invalid:not(:placeholder-shown))~.ErrorMessage {
+    display: block;
+}
