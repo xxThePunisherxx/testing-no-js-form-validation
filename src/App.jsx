@@ -3,6 +3,8 @@ import "./App.css";
 
 function App() {
 	// const [first, setfirst] = useState(second)
+	// TODO change style to distinguish when the user focuses on the error input and not focused
+	//TODO add touch validation.
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		const data = new FormData(e.target);
@@ -57,7 +59,16 @@ function App() {
 						</div>
 						<div className="inputWrapper">
 							<label htmlFor="email">Email</label>
-							<input type="email" name="email" id="email" required placeholder="Email" title="Please enter a valid email" />
+							{/* <input type="email" name="email" id="email" required placeholder="Email" title="Please enter a valid email" /> */}
+							<input
+								type="text"
+								id="email"
+								name="email"
+								required
+								placeholder="Email"
+								pattern="(^[a-zA-Z0-9_.]+[@]{1}[a-z0-9]+[\.][a-z]{2,}$)"
+								title="Please enter a valid email address."
+							></input>
 							<h2 className="ReqMessage">Required.</h2>
 							<h2 className="ErrorMessage">Please enter a valid email</h2>
 						</div>
